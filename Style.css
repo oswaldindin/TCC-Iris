@@ -1,0 +1,376 @@
+/* Configurações Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #eef5f9;
+    color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Logo Ajustada */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.logo-img {
+    max-width: 80px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Telas e Modais */
+.tela {
+    display: none;
+    width: 100%;
+    max-width: 750px;
+}
+
+.tela.ativa {
+    display: block;
+}
+
+.card-apresentacao, .checklist-container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    border: 1px solid #d0e1fd;
+    position: relative;
+}
+
+h1 {
+    color: #2a6f97;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #4a7c59;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* Carrossel de Frases com Setas Sutis (Hover) */
+.slider-frases-container {
+    position: relative;
+    background-color: #f0f7ff;
+    border-radius: 12px;
+    padding: 25px 45px;
+    margin-bottom: 30px;
+    text-align: center;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-frase {
+    display: none;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #334155;
+    line-height: 1.4;
+}
+
+.card-frase.ativa {
+    display: block;
+}
+
+/* Setas Sutis nas Laterais */
+.seta-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #2a6f97;
+    font-size: 1.3rem;
+    cursor: pointer;
+    opacity: 0.15; /* Sutil / Quase transparente por padrão */
+    transition: opacity 0.3s ease;
+    padding: 10px;
+}
+
+.slider-frases-container:hover .seta-slider {
+    opacity: 0.7; /* Ganha destaque suave ao passar o mouse */
+}
+
+.seta-slider:hover {
+    opacity: 1 !important;
+}
+
+.seta-esq { left: 10px; }
+.seta-dir { right: 10px; }
+
+/* Botão Iniciar Centralizado */
+.container-btn-central {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.btn-principal {
+    width: 80%;
+    max-width: 320px;
+    padding: 14px;
+    background-color: #468faf;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-principal:hover {
+    background-color: #2a6f97;
+}
+
+/* Rodapé / Botão Discreto de Sobre */
+.rodape-inicio {
+    text-align: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
+
+.btn-sobre-discreto {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.btn-sobre-discreto:hover {
+    color: #2a6f97;
+}
+
+/* Modal de Sobre o Projeto */
+.modal-sobre {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-sobre.ativo {
+    display: flex;
+}
+
+.conteudo-modal-sobre {
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    line-height: 1.6;
+}
+
+.fechar-sobre {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.modal-sobre h2, .modal-sobre h3, .modal-sobre h4 {
+    color: #014f86;
+    margin-bottom: 10px;
+}
+
+.divisor {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 15px 0;
+}
+
+.fotos-integrantes {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.card-integrante {
+    text-align: center;
+}
+
+.foto-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #e0f2fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 0 auto 8px auto;
+    overflow: hidden;
+}
+
+.foto-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Checklist / Categorias */
+.header-checklist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-checklist h2 {
+    color: #2a6f97;
+}
+
+.btn-voltar {
+    background-color: transparent;
+    border: 1px solid #468faf;
+    color: #468faf;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.instrucoes {
+    margin-bottom: 15px;
+    color: #64748b;
+}
+
+.categorias-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-categoria {
+    flex: 1;
+    padding: 10px;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    color: #475569;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-categoria.ativa {
+    background-color: #2a6f97;
+    color: white;
+    border-color: #2a6f97;
+}
+
+.checklist {
+    list-style: none;
+}
+
+.lista-categoria {
+    display: none;
+}
+
+.lista-categoria.ativa {
+    display: block;
+}
+
+.item-checklist {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.item-checklist input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    accent-color: #2a6f97;
+    cursor: pointer;
+}
+
+.item-checklist label {
+    font-size: 1rem;
+    cursor: pointer;
+    color: #334155;
+}
+
+.item-checklist.concluido label {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+/* Modal Sucesso / Conclusão */
+.modal-sucesso {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-sucesso.ativo {
+    display: flex;
+}
+
+.conteudo-modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 350px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icone-animado {
+    font-size: 3rem;
+    animation: pop 0.5s ease-out;
+    margin-bottom: 10px;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}

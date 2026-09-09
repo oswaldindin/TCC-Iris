@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREVICLEAN - Prevenção da Contaminação Cruzada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TELA INICIAL / HOME -->
+    <section id="tela-inicio" class="tela ativa">
+        <div class="card-apresentacao">
+            
+            <!-- Logo Local Ajustada -->
+            <div class="logo-container">
+                <picture>
+                    <source srcset="logo.jpeg" type="image/jpeg">
+                    <source srcset="logo.jpg" type="image/jpeg">
+                    <img src="logo.png" alt="PREVICLEAN Logo" class="logo-img">
+                </picture>
+            </div>
+
+            <h1>PREVICLEAN</h1>
+            <p class="subtitulo">Prevenção da contaminação cruzada durante a manipulação de medicamentos.</p>
+
+            <!-- Carrossel de Frases com Setas Sutis -->
+            <div class="slider-frases-container">
+                <button class="seta-slider seta-esq" onclick="mudarFrase(-1)">❮</button>
+                <div class="slider-frases">
+                    <div class="card-frase ativa"><p>"Confira. Higienize. Previna."</p></div>
+                    <div class="card-frase"><p>"O que não é visível também precisa de controle."</p></div>
+                    <div class="card-frase"><p>"Um traço microscópico de descuido pode mudar todo o destino de um tratamento."</p></div>
+                    <div class="card-frase"><p>"O risco é invisível, mas o impacto é real."</p></div>
+                </div>
+                <button class="seta-slider seta-dir" onclick="mudarFrase(1)">❯</button>
+            </div>
+
+            <!-- Botão Iniciar Centralizado -->
+            <div class="container-btn-central">
+                <button id="btn-iniciar" class="btn-principal" onclick="iniciarChecklist()">Iniciar Checklist</button>
+            </div>
+
+            <!-- Rodapé / Botão Discreto de Sobre -->
+            <footer class="rodape-inicio">
+                <button class="btn-sobre-discreto" onclick="abrirSobre()">Sobre o Site & Projeto</button>
+            </footer>
+
+        </div>
+    </section>
+
+    <!-- TELA/MODAL DE SOBRE O SITE & PROJETO -->
+    <section id="tela-sobre" class="modal-sobre">
+        <div class="conteudo-modal-sobre">
+            <button class="fechar-sobre" onclick="fecharSobre()">✕</button>
+            <h2>Sobre o PREVICLEAN</h2>
+            <p>O PREVICLEAN foi desenvolvido com base nas Boas Práticas de Manipulação e nas normas sanitárias aplicáveis (<strong>RDC 67/2007</strong> e <strong>RDC 44/2009</strong>), visando auxiliar na prevenção da contaminação cruzada durante a manipulação de medicamentos.</p>
+            
+            <hr class="divisor">
+
+            <h3>Intuito do Projeto</h3>
+            <p>A plataforma visa otimizar rotinas sanitárias, modernizando a checagem de procedimentos em farmácias e laboratórios de manipulação para garantir conformidade e segurança ao paciente.</p>
+            
+            <div class="integrantes-info">
+                <h4>Integrantes</h4>
+                <div class="fotos-integrantes">
+                    <div class="card-integrante">
+                        <div class="foto-placeholder"><img src="foto-gabriella.jpg" alt="Gabriella Teixeira" onerror="this.style.display='none'"><span>👤</span></div>
+                        <p><strong>Gabriella Teixeira da Silva</strong></p>
+                    </div>
+                    <div class="card-integrante">
+                        <div class="foto-placeholder"><img src="foto-iris.jpg" alt="Iris Ortega" onerror="this.style.display='none'"><span>👤</span></div>
+                        <p><strong>Iris Ortega Rubes Dos Santos</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TELA DO CHECKLIST -->
+    <section id="tela-checklist" class="tela">
+        <header class="header-checklist">
+            <h2>PREVICLEAN - Checklist</h2>
+            <button class="btn-voltar" onclick="voltarInicio()">← Voltar ao Início</button>
+        </header>
+
+        <main class="checklist-container">
+            <p class="instrucoes">Selecione uma categoria e marque as tarefas concluídas:</p>
+            
+            <!-- Abas de Categorias -->
+            <div class="categorias-container">
+                <button class="btn-categoria ativa" onclick="trocarCategoria('farmacia', this)">Farmácia</button>
+                <button class="btn-categoria" onclick="trocarCategoria('laboratorio', this)">Laboratório</button>
+                <button class="btn-categoria" onclick="trocarCategoria('geral', this)">Geral</button>
+            </div>
+
+            <!-- Lista Categoria: Farmácia -->
+            <ul id="cat-farmacia" class="checklist lista-categoria ativa">
+                <li class="item-checklist">
+                    <input type="checkbox" id="f1" onchange="toggleItem(this)">
+                    <label for="f1">Higienizar balcão de atendimento e teclados com álcool 70%</label>
+                </li>
+                <li class="item-checklist">
+                    <input type="checkbox" id="f2" onchange="toggleItem(this)">
+                    <label for="f2">Conferir temperatura e umidade da geladeira de medicamentos</label>
+                </li>
+                <li class="item-checklist">
+                    <input type="checkbox" id="f3" onchange="toggleItem(this)">
+                    <label for="f3">Verificar prazo de validade das embalagens e insumos em estoque</label>
+                </li>
+            </ul>
+
+            <!-- Lista Categoria: Laboratório -->
+            <ul id="cat-laboratorio" class="checklist lista-categoria">
+                <li class="item-checklist">
+                    <input type="checkbox" id="l1" onchange="toggleItem(this)">
+                    <label for="l1">Higienizar bancadas e superfícies de manipulação com álcool 70%</label>
+                </li>
+                <li class="item-checklist">
+                    <input type="checkbox" id="l2" onchange="toggleItem(this)">
+                    <label for="l2">Realizar lavagem antisséptica das mãos e antebraços antes da manipulação</label>
+                </li>
+                <li class="item-checklist">
+                    <input type="checkbox" id="l3" onchange="toggleItem(this)">
+                    <label for="l3">Verificar paramentação completa (luvas, máscara, touca e jaleco limpo)</label>
+                </li>
+                <li class="item-checklist">
+                    <input type="checkbox" id="l4" onchange="toggleItem(this)">
+                    <label for="l4">Conferir se os utensílios e vidrarias estão limpos e esterilizados</label>
+                </li>
+            </ul>
+
+            <!-- Lista Categoria: Geral -->
+            <ul id="cat-geral" class="checklist lista-categoria">
+                <li class="item-checklist">
+                    <input type="checkbox" id="g1" onchange="toggleItem(this)">
+                    <label for="g1">Efetuar descarte correto dos resíduos conforme RDC 67/2007 e RDC 44/2009</label>
+                </li>
+                <li class="item-checklist">
+                    <input type="checkbox" id="g2" onchange="toggleItem(this)">
+                    <label for="g2">Conferir registros de rotina de limpeza e sanificação da sala</label>
+                </li>
+            </ul>
+        </main>
+    </section>
+
+    <!-- Modal de Animação e Conclusão -->
+    <div id="modal-conclusao" class="modal-sucesso">
+        <div class="conteudo-modal">
+            <div class="icone-animado">🎉</div>
+            <h2>Parabéns!</h2>
+            <p>Todas as tarefas desta categoria foram concluídas com sucesso!</p>
+            <button class="btn-principal" onclick="fecharModal()">Continuar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
